@@ -1,0 +1,7 @@
+go test  //sem alterar o fonte não executa novamente, traz do cache
+go test -v // (verbose) traz mais informações
+go test ./... // executado na raiz do projeto executa os testes de todos os pacotes
+go test --cover // traz a avaliação de cobertura dos testes
+go test --coverprofile coberturta.txt //  gera um arquivo de cobertura
+go tool cover --func=cobertura.txt // gera analise do arquivo de cobertura
+go tool cover --html=cobertura.txt // gera um arquivo html de analise de cobertura

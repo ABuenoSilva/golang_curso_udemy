@@ -46,7 +46,9 @@ func main() {
 	}
 
 	//Loop infinito
-	for {
-		fmt.Println("Infinito")
-	}
+	/*
+		for {
+			fmt.Println("Infinito")
+		}
+	*/
 }

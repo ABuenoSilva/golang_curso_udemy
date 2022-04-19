@@ -2,7 +2,6 @@ $('#formulario-cadastro').on('submit', criarUsuario)
 
 function criarUsuario(event) {
     event.preventDefault();
-    console.log('criar usuario');
 
     if ($('#senha').val() !== $('#confirmar-senha').val()) {
         alert("As senhas não conferem");
@@ -18,5 +17,9 @@ function criarUsuario(event) {
             nick: $('#nick').val(),
             senha: $('#senha').val()
         }
+    }).done( function() {
+        alert('Usuário cadastrado com sucesso');
+    }).fail( function(erro) {
+        alert('Erro ao cadastrar o usuário: ' + erro.responseJSON.erro);
     });
 }

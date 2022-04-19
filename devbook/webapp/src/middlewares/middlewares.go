@@ -1,9 +1,9 @@
 package middlewares
 
 import (
-	"fmt"
 	"log"
 	"net/http"
+	"webapp/src/cookies"
 )
 
 func Logger(proximaFuncao http.HandlerFunc) http.HandlerFunc {
@@ -15,13 +15,12 @@ func Logger(proximaFuncao http.HandlerFunc) http.HandlerFunc {
 
 func Autenticar(proximaFuncao http.HandlerFunc) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		/*
-			if _, erro := cookies.Ler(r); erro != nil {
-				http.Redirect(w, r, "/login", http.StatusMovedPermanently)
-				return
-			}
-		*/
-		fmt.Println("autenticando")
+
+		if _, erro := cookies.Ler(r); erro != nil {
+			http.Redirect(w, r, "/login", http.StatusMovedPermanently)
+			return
+		}
+
 		proximaFuncao(w, r)
 	}
 }

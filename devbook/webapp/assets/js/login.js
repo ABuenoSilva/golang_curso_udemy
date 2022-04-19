@@ -10,7 +10,7 @@ function fazerLogin(evento) {
             email: $('#email').val(),
             senha: $('#senha').val()
         }
-    }).done( function() {
+    }).done(function () {
         window.location = '/home';
     }).fail( function() {
         alert('Usuário ou senha inválidos');

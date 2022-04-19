@@ -16,3 +16,6 @@
 
 #Configuracoes
 .env
+
+#Binarios
+/devbook/api/api

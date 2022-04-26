@@ -18,4 +18,28 @@ var rotasPublicacoes = []Rota{
 		Funcao:            controllers.CurtirPublicacao,
 		RequerAutorizacao: true,
 	},
+	{
+		URI:               "/publicacoes/{publicacaoID}/atualizar",
+		Metodo:            http.MethodGet,
+		Funcao:            controllers.CarregarPaginaDeEdicaoDePublicacao,
+		RequerAutorizacao: true,
+	},
+	{
+		URI:               "/publicacoes/{publicacaoID}/deletar",
+		Metodo:            http.MethodDelete,
+		Funcao:            controllers.CurtirPublicacao,
+		RequerAutorizacao: true,
+	},
+	{
+		URI:               "/publicacoes/{publicacaoID}",
+		Metodo:            http.MethodPut,
+		Funcao:            controllers.AtualizarPublicacao,
+		RequerAutorizacao: true,
+	},
+	{
+		URI:               "/publicacoes/{publicacaoID}",
+		Metodo:            http.MethodDelete,
+		Funcao:            controllers.DeletarPublicacao,
+		RequerAutorizacao: true,
+	},
 }

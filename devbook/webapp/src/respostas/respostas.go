@@ -11,7 +11,7 @@ type ErroAPI struct {
 }
 
 func JSON(w http.ResponseWriter, statusCode int, dados interface{}) {
-	w.Header().Set("Content-Type", "application/json")
+	//w.Header().Set("Content-Type", "application/json") //não funciona qdo não tem retorno pq o ajax tenta fazer parse de nil e cai na cláusula fail
 	w.WriteHeader(statusCode)
 
 	if dados != nil {

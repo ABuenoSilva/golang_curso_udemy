@@ -1,4 +1,5 @@
 //Implementar descurtir com atualização de tela (um curtir por usuário), o do curso é um mock utilizando variáveis que se perdem qdo atualiza o path
+//Curtir com atualização de tela tem o problema de redirecionar erroneamente caso venha de outra página (como o perfil)
 $('#nova-publicacao').on('submit', criarPublicacao);
 $(document).on('click', '.curtir-publicacao', curtirPublicacao); //usando document pq vai ter atualizar do html (não nessa versão, mas na do curso que atualizava a variável)
 $('#atualizar-publicacao').on('click', atualizarPublicacao);
@@ -31,7 +32,7 @@ function curtirPublicacao(event) {
         url: `/publicacoes/${publicacaoId}/curtir`,
         method: "POST"
     }).done(function () {
-        window.location = '/home';
+        window.location.reload();
     }).fail(function () {
         Swal.fire('Erro', 'Erro ao curtir a publicação', 'error');
     }).always(function () {
@@ -53,7 +54,7 @@ function atualizarPublicacao() {
         }
     }).done(function () {
         Swal.fire('Sucesso!', 'Publicação atualizada com sucesso', 'success')
-            .then(() => window.location = '/home');
+            .then(() => window.location.reload());
     }).fail(function () {
         Swal.fire('Erro', 'Erro ao atualizar a publicação', 'error');
     }).always(function () {
@@ -80,7 +81,7 @@ function deletarPublicacao(event) {
                 method: "DELETE"
             }).done(function () {
                 Swal.fire('Sucesso!', 'Publicação excluída com sucesso', 'success')
-                    .then(() => window.location = '/home');
+                    .then(() => window.location.reload());
             }).fail(function () {
                 Swal.fire('Erro', 'Erro ao excluir a publicação', 'error');
             }).always(function () {

@@ -95,7 +95,8 @@ func BuscarUsuario(w http.ResponseWriter, r *http.Request) {
 		respostas.Erro(w, http.StatusInternalServerError, erro)
 		return
 	}
-	respostas.JSON(w, http.StatusFound, usuario)
+
+	respostas.JSON(w, http.StatusOK, usuario)
 }
 
 func AtualizarUsuario(w http.ResponseWriter, r *http.Request) {

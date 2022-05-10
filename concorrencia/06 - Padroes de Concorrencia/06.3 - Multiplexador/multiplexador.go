@@ -16,7 +16,7 @@ func main() {
 
 func multiplexar(canalDeEntrada1, canalDeEntrada2 <-chan string) <-chan string {
 	canalDeSaida := make(chan string)
-
+	//Select em go func anonima
 	go func() {
 		for {
 			select {
